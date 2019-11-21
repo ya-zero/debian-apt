@@ -55,7 +55,7 @@ deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian buster contri
 
 ## List Packages
 
-### Debian Stretch paquetes estandar
+### Debian packages
 
 ```sh 
 ## Essentials packages for OS
@@ -78,7 +78,6 @@ whois telnet vim traceroute nmap bind9utils dnsutils curl wget tree net-tools ac
 
 ## Tools for laptop 
 laptop-mode-tools tuned tuned-gtk tuned-utils hardinfo
-
 ```
 
 ### SSH Server (Optional)
@@ -100,7 +99,7 @@ or
 ufw gufw			
 ```
 
-### Vitualization tools
+### Vitualization
 
 ```sh
 ## KVM Virtualization
@@ -151,10 +150,10 @@ vlc ffmpeg gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
 
 ```sh
 ## Fonts for OS
-ttf-mscorefonts-installer fonts-freefont-ttf fonts-freefont-otf 
+ttf-mscorefonts-installer fonts-freefont-ttf fonts-freefont-otf
 ```
 
-### Design 
+### Graphics Design 
 
 ```sh 
 ## Editor images
@@ -166,4 +165,13 @@ gimp gimp-data-extras inkscape inkscape-open-symbols sozi dia dia-rib-network di
 ```sh 
 ## Default Firefox ESR and Chromium
 firefox-esr chromium-l10n
+```
+
+### Docker CE - MariaDB
+
+```sh
+    ## Docker CE
+    docker-ce docker-ce-cli containerd.io
+    ## mariaDB
+    mariadb-server mariadb-client mycli
 ```

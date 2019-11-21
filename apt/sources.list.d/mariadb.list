@@ -1,0 +1,2 @@
+deb [arch=amd64] https://mirrors.nxthost.com/mariadb/repo/10.4/debian buster main
+#deb-src [arch=amd64] https://mirrors.nxthost.com/mariadb/repo/10.4/debian buster main
