@@ -35,7 +35,8 @@ while [ $DATA != "*" ]; do
             wget -P /var/cache/apt/archives/ http://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb
             dpkg -i /var/cache/apt/archives/deb-multimedia-keyring_2016.8.1_all.deb
             apt update
-
+            apt upgrade -y 
+            systemctl reboot
             DATA=l
         ;;
         2)
