@@ -76,7 +76,7 @@ while [ $DATA != "*" ]; do
             apt install -y whois telnet vim traceroute nmap bind9utils dnsutils curl wget tree net-tools acpi acpitool locales htop ethtool mlocate pv rsync
 
             echo "Install Tools for laptop "
-            apt install -y laptop-mode-tools tuned tuned-gtk tuned-utils hardinfo
+            apt install -y laptop-mode-tools tuned tuned-gtk tuned-utils hardinfo arc-theme gnome-tweak-tool gnome-tweaks acpi acpid
 
             echo "Autoconf sensors"
             sensor-detect --auto
@@ -130,7 +130,7 @@ while [ $DATA != "*" ]; do
         ;;
         12)
             echo "Install Packages Multimedia"
-            apt install -y vlc ffmpeg gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools libdvd-pkg faac faad
+            apt install -y vlc ffmpeg gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools faac faad
             DATA=1
         ;;
         13)
@@ -160,7 +160,7 @@ while [ $DATA != "*" ]; do
             DATA=1
         ;;
         *)
-            echo "End Installation"
+            echo "Congratulations!!!"
             break
         ;;
     esac

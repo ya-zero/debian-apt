@@ -77,7 +77,7 @@ bzip2 zip unzip unace rar unace-nonfree p7zip p7zip-full p7zip-rar unrar unrar-f
 whois telnet vim traceroute nmap bind9utils dnsutils curl wget tree net-tools acpi acpitool locales htop ethtool mlocate pv rsync
 
 ## Tools for laptop 
-laptop-mode-tools tuned tuned-gtk tuned-utils hardinfo
+laptop-mode-tools tuned tuned-gtk tuned-utils hardinfo arc-theme gnome-tweak-tool gnome-tweaks acpi acpid
 ```
 
 ### SSH Server (Optional)
@@ -143,7 +143,7 @@ letsencrypt
 
 ```sh
 ## Codecs, Sound and Video
-vlc ffmpeg gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools libdvd-pkg faac faad
+vlc ffmpeg gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-pulseaudio vorbis-tools faac faad
 ```
 
 ### Fonts Typographics
