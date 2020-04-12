@@ -2,8 +2,7 @@
 
 ## Reference Download ISO Debian Buster
 
-- Debian HTTP download AMD64: [DVD](https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-10.2.0-amd64-DVD-1.iso)
-- Debian HTTP download i386: [DVD](https://cdimage.debian.org/debian-cd/current/i386/iso-dvd/debian-10.2.0-i386-DVD-1.iso)
+- Download official [URL](https://www.debian.org/CD/http-ftp/)
 
 ## Recommendations
 
