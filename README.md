@@ -1,18 +1,6 @@
 # Debian Buster Post Install Desktop
 
-## Reference Download ISO Debian Buster
-
-- Download official [URL](https://www.debian.org/CD/http-ftp/)
-
-## Recommendations
-
-### Disks partitions for Personal Desktop
-
-- swap: 2 GB
-- / (root): 60 GB
-- /home (User directory): Free space remaining
-
-### Repositorys for Personal Desktop
+## Repositories for Personal Desktop
 
 For **/etc/apt/sources.list**: 
 
@@ -27,45 +15,23 @@ deb http://security.debian.org/debian-security buster/updates main contribnon-fr
 deb http://www.deb-multimedia.org buster main non-free
 ``` 
 
-### Optionals repositorys
+## Package List
 
-For **/etc/apt/sources.list.d/mariadb.list**
-
-```sh
-## MariaDB Official
-deb [arch=amd64] https://mirrors.nxthost.com/mariadb/repo/10.4/debian buster main
-deb-src [arch=amd64] https://mirrors.nxthost.com/mariadb/repo/10.4/debian buster main
-```
-
-For **/etc/apt/sources.list.d/docker-ce.list**
-
-```sh
-## Docker CE Official
-deb [arch=amd64] https://download.docker.com/linux/debian buster stable
-deb-src [arch=amd64] https://download.docker.com/linux/debian buster stable
-```
-
-For **/etc/apt/sources.list.d/virtualbox.list**
-
-```sh
-## Virtualbox Official
-deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian buster contrib
-```
-
-## List Packages
-
-### Debian packages
+### Debian Base
 
 ```sh 
 ## Essentials packages for OS
 apt install -y linux-headers-$(uname -r) build-essential checkinstall make \
-automake cmake autoconf aptitude lsb-release 
+automake cmake autoconf aptitude lsb-release
 
 ## Packages for manage versions
 apt install -y git subversion subversion-tools
 
 ## Packages requiered for hardware Intel
 apt install -y intel-microcode intel-gpu-tools inteltool lm-sensors
+
+## For lm-sensors
+sensor-detect --auto
 
 ## Packages Firmware
 apt install -y firmware-linux firmware-linux-free firmware-linux-nonfree 
@@ -109,13 +75,13 @@ apt install -y ufw gufw
 
 ```sh
 ## KVM Virtualization
-apt install -y qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virt-viewer virt-what \
-virtinst virt-manager
-```
-or 
-```sh
-## Virtualbox Virtualization
-apt install -y virtualbox-6.1
+apt install -y qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system \
+virt-viewer virt-what virtinst virt-manager
+
+## For privileges < >
+adduser $(whoami) libvirt
+adduser $(whoami) libvirt-qemu
+adduser $(whoami) kvm
 ```
 
 ### Web Server
@@ -136,11 +102,9 @@ nginx nginx-extras
 
 ```sh
 ## First install
-apt install -y libapache2-mod-php php-common php-pear mcrypt php-gd php-cli php-curl \
-php-mysql php-zip
-## Second install
-apt install -y libapache2-mod-php7.3 php7.3-common php7.3 php7.3-cli php7.3-curl \
-php7.3-mysql php7.3-odbc php7.3-pgsql php7.3-sqlite3 php7.3-json php7.3-readline php7.3-gd
+apt install -y php php-common php-pear mcrypt php-gd php-cli \
+php-curl php-mysql php-zip libapache2-mod-php php-odbc php-pgsql \
+php-sqlite3 php-json php-readline php-gd  
 ```
 
 ### Certificates SSL
@@ -178,14 +142,11 @@ dia-rib-network dia-shapes dia-common
 
 ```sh 
 ## Default Firefox ESR and Chromium
-apt install -y firefox-esr chromium-l10n
+apt install -y chromium chromium-l10n
 ```
 
-### Docker CE - MariaDB
+### Additional packages
 
 ```sh
-## Docker CE
-apt install -y docker-ce docker-ce-cli containerd.io
-## mariaDB
-apt install -y mariadb-server mariadb-client mycli
+apt install -y ghex gitg gqrx-sdr htop peek stegosuite vokoscreen
 ```
