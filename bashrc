@@ -56,7 +56,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-## Fcch Git
+## Git
 are_there_git_changes() {
     status=$(git status 2> /dev/null)
     if [[ $status && ! $(echo $status | grep "clean") ]]; then
@@ -67,7 +67,7 @@ are_there_git_changes() {
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-## Fcch Git Fin
+## Git end
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\t\[\033[00m\]:\[\033[01;34m\][\W]\[\033[00m\]$(parse_git_branch)$(are_there_git_changes)\$ '
@@ -124,4 +124,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias vbox-uta="/home/freddy/fcch/fcch-bash/vbox-uta.sh"

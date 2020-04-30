@@ -22,10 +22,10 @@ deb http://www.deb-multimedia.org buster main non-free
 ```sh 
 ## Essentials packages for OS
 apt install -y linux-headers-$(uname -r) build-essential checkinstall make \
-automake cmake autoconf aptitude lsb-release
+automake cmake autoconf aptitude lsb-release dkms
 
 ## Packages for manage versions
-apt install -y git subversion subversion-tools
+apt install -y git gitg
 
 ## Packages requiered for hardware Intel
 apt install -y intel-microcode intel-gpu-tools inteltool lm-sensors
@@ -46,8 +46,13 @@ apt install -y whois telnet vim traceroute nmap bind9utils dnsutils curl \
 wget tree net-tools locales htop ethtool mlocate pv rsync
 
 ## Tools for laptop 
-apt install -y laptop-mode-tools tuned tuned-gtk tuned-utils hardinfo arc-theme \
-gnome-tweak-tool gnome-tweaks acpi acpid acpitool
+apt install -y laptop-mode-tools 
+
+## Required Packages
+apt install -y apt-transport-https ca-certificates curl gnupg-agent \
+software-properties-common tuned tuned-gtk tuned-utils hardinfo \
+arc-theme gnome-tweak-tool gnome-tweaks acpi acpid acpitool \
+software-properties-common dirmngr
 ```
 
 ### SSH Server (Optional)
@@ -119,7 +124,7 @@ apt install -y letsencrypt
 ```sh
 ## Codecs, Sound and Video
 apt install -y vlc gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad \
-gstreamer1.0-pulseaudio vorbis-tools faac faad w64codecs ffmpeg ffmpeg2theora libdvdcss2 \ 
+gstreamer1.0-pulseaudio vorbis-tools faac faad w64codecs ffmpeg ffmpeg2theora libdvdcss2 \
 libdvdread4
 ```
 
@@ -141,12 +146,66 @@ dia-rib-network dia-shapes dia-common
 ### Web Browsers 
 
 ```sh 
-## Default Firefox ESR and Chromium
+## Chromium
 apt install -y chromium chromium-l10n
 ```
 
-### Additional packages
+### Additional Packages
 
 ```sh
-apt install -y ghex gitg gqrx-sdr htop peek stegosuite vokoscreen
+apt install -y ghex gqrx-sdr peek vokoscreen stegosuite etherape ettercap-text-only \
+fritzing fritzing-parts mediainfo mediainfo-gui linkchecker testssl.sh speedtest-cli \
+arduino arduino-core wireshark zim 
+```
+
+## MariaDB DataBase
+
+```sh
+## /etc/apt/sources.list.d/mariadb.list
+deb [arch=amd64] http://ftp.icm.edu.pl/pub/unix/database/mariadb/repo/10.4/debian buster main
+deb-src http://ftp.icm.edu.pl/pub/unix/database/mariadb/repo/10.4/debian buster main
+
+## Adding Key
+apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+
+## Install Packages
+apt install mariadb-server mariadb-client mycli
+```
+
+## VirtualBox
+
+```sh 
+## /etc/apt/sources.list.d/virtualbox.list
+deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian buster contrib
+
+## Adding Key
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+
+## Install Package
+apt-get install virtualbox-6.1
+
+## Oracle VM VirtualBox Extension Pack
+Download for curren version: https://virtualbox.org
+```
+
+## Docker CE
+
+```sh 
+## /etc/apt/sources.list.d/docker-ce.list
+deb [arch=amd64] https://download.docker.com/linux/debian buster stable
+
+##  Adding Key
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+## Install Packages
+apt-get install docker-ce docker-ce-cli containerd.io
+
+## Install Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+## Execution Privileges
+sudo chmod +x /usr/local/bin/docker-compose
+
+## Create Symbolic Links
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
