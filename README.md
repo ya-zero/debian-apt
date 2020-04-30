@@ -193,6 +193,7 @@ Download for curren version: https://virtualbox.org
 ```sh 
 ## /etc/apt/sources.list.d/docker-ce.list
 deb [arch=amd64] https://download.docker.com/linux/debian buster stable
+deb-src [arch=amd64] https://download.docker.com/linux/debian buster stable
 
 ##  Adding Key
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
